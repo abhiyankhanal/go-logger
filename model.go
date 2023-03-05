@@ -9,7 +9,7 @@ import "log"
 
 type Worker struct {
 	Minion     *log.Logger
-	Color      int
+	isColor    int
 	format     string
 	timeFormat string
 	level      LogLevel

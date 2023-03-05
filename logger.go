@@ -103,8 +103,8 @@ func ph2verb(ph string) (verb string, arg string) {
 
 // Returns an instance of worker class, prefix is the string attached to every log,
 // flag determine the log params, color parameters verifies whether we need colored outputs or not
-func NewWorker(prefix string, flag int, color int, out io.Writer) *Worker {
-	return &Worker{Minion: log.New(out, prefix, flag), Color: color, format: defFmt, timeFormat: defTimeFmt}
+func NewWorker(prefix string, flag int, isColor int, out io.Writer) *Worker {
+	return &Worker{Minion: log.New(out, prefix, flag), isColor: isColor, format: defFmt, timeFormat: defTimeFmt}
 }
 
 func SetDefaultFormat(format string) {
@@ -149,7 +149,7 @@ func (w *Worker) Log(level LogLevel, calldepth int, info *Info) error {
 		return nil
 	}
 
-	if w.Color != 0 {
+	if w.isColor != 0 {
 		buf := &bytes.Buffer{}
 		buf.Write([]byte(colors[level]))
 		buf.Write([]byte(info.Output(w.format)))
@@ -163,10 +163,11 @@ func (w *Worker) Log(level LogLevel, calldepth int, info *Info) error {
 // Returns a proper string to output for colored logging
 func ColorString(color int) string {
 	return fmt.Sprintf("\033[%dm", int(color))
+
 }
 
 // Initializes the map of colors
-func initColors(userColor *map[LogLevel]string) {
+func setColors(userColor *map[LogLevel]string) {
 	colors = *userColor
 }
 
@@ -186,7 +187,7 @@ func initFormatPlaceholders() {
 }
 
 // Returns a new instance of logger class, module is the specific module for which we are logging
-// , color defines whether the output is to be colored or not, out is instance of type io.Writer defaults
+// , isColor defines whether the output is to be colored or not, Color defines type of color, out is instance of type io.Writer defaults
 // to os.Stderr
 func New(args ...interface{}) (*Logger, error) {
 	//initColors()
@@ -213,7 +214,7 @@ func New(args ...interface{}) (*Logger, error) {
 			panic("logger: Unknown argument")
 		}
 	}
-	initColors(&color)
+	setColors(&color)
 	newWorker := NewWorker("", 0, isColor, out)
 	newWorker.SetLogLevel(level)
 	return &Logger{Module: module, worker: newWorker}, nil
