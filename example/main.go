@@ -1,22 +1,25 @@
 package main
 
-import "os"
-import "logger"
+import (
+	"github.com/abhiyankhanal/go-logger"
+	"os"
+)
 
 var (
-	minimalColors = map[logger.LogLevel]string{
-		logger.CriticalLevel: logger.ColorString(31),
-		logger.ErrorLevel:    logger.ColorString(31),
-		logger.WarningLevel:  logger.ColorString(31),
-		logger.NoticeLevel:   logger.ColorString(31),
-		logger.DebugLevel:    logger.ColorString(31),
-		logger.InfoLevel:     logger.ColorString(31),
+	myColors = map[logger.LogLevel]string{
+		logger.CriticalLevel: logger.ColorString(logger.Red),
+		logger.ErrorLevel:    logger.ColorString(logger.Red),
+		logger.WarningLevel:  logger.ColorString(logger.Yellow),
+		logger.NoticeLevel:   logger.ColorString(logger.Blue),
+		logger.DebugLevel:    logger.ColorString(logger.Magenta),
+		logger.InfoLevel:     logger.ColorString(logger.Green),
 	}
 )
 
 func main() {
 	// Third option(io.Writer) is optional, defaults to os.Stderr
-	log, err := logger.New("test", 1, os.Stderr, minimalColors)
+	// Fourth option is optional as well, else if we want custom colors then we can make by following way
+	log, err := logger.New("test", 1, os.Stderr, myColors)
 	if err != nil {
 		panic(err) // Check for error
 	}
@@ -39,6 +42,6 @@ func main() {
 	log.Warning("This is Warning!  --with customized format")
 	// Set Default Format, this will only show message
 	logger.SetDefaultFormat("%{message}")
-	log2, _ := logger.New("pkg", 1, os.Stdout)
+	log2, _ := logger.New("pkg", 1)
 	log2.Error("This is Error!")
 }

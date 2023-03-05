@@ -42,6 +42,7 @@ const (
 )
 
 // Constant color maps
+
 var (
 	defaultColors = map[LogLevel]string{
 		CriticalLevel: ColorString(Magenta),
