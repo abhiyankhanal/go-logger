@@ -1,4 +1,4 @@
-package logger
+package go_logger
 
 var (
 	colors map[LogLevel]string
