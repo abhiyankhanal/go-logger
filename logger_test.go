@@ -1,4 +1,4 @@
-package logger
+package go_logger
 
 import (
 	"bytes"
