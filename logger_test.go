@@ -23,27 +23,27 @@ func BenchmarkLoggerLog(b *testing.B) {
 	}{
 		{
 			CriticalLevel,
-			"Critical Logging",
+			"Critical Log Testing",
 		},
 		{
 			ErrorLevel,
-			"Error logging",
+			"Error log Testing",
 		},
 		{
 			WarningLevel,
-			"Warning logging",
+			"Warning log Testing",
 		},
 		{
 			NoticeLevel,
-			"Notice Logging",
+			"Notice log Testing",
 		},
 		{
 			InfoLevel,
-			"Info Logging",
+			"Info log Testing",
 		},
 		{
 			DebugLevel,
-			"Debug logging",
+			"Debug log Testing",
 		},
 	}
 
@@ -75,7 +75,7 @@ func TestLoggerNew(t *testing.T) {
 }
 
 func TestColorString(t *testing.T) {
-	colorCode := colorString(40)
+	colorCode := ColorString(40)
 	if colorCode != "\033[40m" {
 		t.Errorf("Unexpected string: %s", colorCode)
 	}
@@ -275,5 +275,63 @@ func TestLogLevel(t *testing.T) {
 			t.Error()
 		}
 		buf.Reset()
+	}
+}
+
+func TestPh2Verb(t *testing.T) {
+	tests := []struct {
+		name         string
+		ph           string
+		expectedVerb string
+		expectedArg  string
+	}{
+		{
+			name:         "empty input",
+			ph:           "",
+			expectedVerb: "",
+			expectedArg:  "",
+		},
+		{
+			name:         "invalid input 1",
+			ph:           "abc",
+			expectedVerb: "",
+			expectedArg:  "",
+		},
+		{
+			name:         "invalid input 2",
+			ph:           "%abc",
+			expectedVerb: "",
+			expectedArg:  "",
+		},
+		{
+			name:         "invalid input 3",
+			ph:           "%{abc",
+			expectedVerb: "",
+			expectedArg:  "",
+		},
+		{
+			name:         "invalid input 4",
+			ph:           "%{abc}",
+			expectedVerb: "",
+			expectedArg:  "",
+		},
+		{
+			name:         "valid input with unknown verb",
+			ph:           "%{unknown:arg}",
+			expectedVerb: "",
+			expectedArg:  "arg",
+		},
+	}
+
+	for _, test := range tests {
+		t.Run(test.name, func(t *testing.T) {
+			verb, arg := ph2verb(test.ph)
+			if verb != test.expectedVerb {
+				t.Errorf("Expected verb %s, but got %s", test.expectedVerb, verb)
+			}
+			if arg != test.expectedArg {
+				t.Errorf("Expected arg %s, but got %s", test.expectedArg, arg)
+			}
+		})
 	}
 }

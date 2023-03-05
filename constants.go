@@ -19,6 +19,16 @@ var (
 // LogLevel type
 type LogLevel int
 
+// Log Level
+const (
+	CriticalLevel LogLevel = iota + 1
+	ErrorLevel
+	WarningLevel
+	NoticeLevel
+	InfoLevel
+	DebugLevel
+)
+
 // Color numbers for stdout
 const (
 	Black = (iota + 30)
@@ -31,12 +41,22 @@ const (
 	White
 )
 
-// Log Level
-const (
-	CriticalLevel LogLevel = iota + 1
-	ErrorLevel
-	WarningLevel
-	NoticeLevel
-	InfoLevel
-	DebugLevel
+// Constant color maps
+var (
+	defaultColors = map[LogLevel]string{
+		CriticalLevel: ColorString(Magenta),
+		ErrorLevel:    ColorString(Red),
+		WarningLevel:  ColorString(Yellow),
+		NoticeLevel:   ColorString(Green),
+		DebugLevel:    ColorString(Cyan),
+		InfoLevel:     ColorString(White),
+	}
+	minimalColors = map[LogLevel]string{
+		CriticalLevel: ColorString(Red),
+		ErrorLevel:    ColorString(Red),
+		WarningLevel:  ColorString(Yellow),
+		NoticeLevel:   ColorString(Green),
+		DebugLevel:    ColorString(Green),
+		InfoLevel:     ColorString(Green),
+	}
 )

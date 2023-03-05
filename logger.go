@@ -14,7 +14,7 @@ import (
 )
 
 func init() {
-	initColors()
+	//initColors(&defaultColors)
 	initFormatPlaceholders()
 }
 
@@ -115,6 +115,21 @@ func (w *Worker) SetFormat(format string) {
 	w.format, w.timeFormat = parseFormat(format)
 }
 
+/*
+Available Formats:
+
+	"%{id}"
+	"%{time}"
+	"%{module}"
+	"%{filename}"
+	"%{file}"
+	"%{line}"
+	"%{level}"
+	"%{lvl}"
+	"%{message}"
+
+Example usage: SetFormat("[%{level}-%{id}] %{module} %{filename} %{file}:%{line} %{message}")
+*/
 func (l *Logger) SetFormat(format string) {
 	l.worker.SetFormat(format)
 }
@@ -146,20 +161,13 @@ func (w *Worker) Log(level LogLevel, calldepth int, info *Info) error {
 }
 
 // Returns a proper string to output for colored logging
-func colorString(color int) string {
+func ColorString(color int) string {
 	return fmt.Sprintf("\033[%dm", int(color))
 }
 
 // Initializes the map of colors
-func initColors() {
-	colors = map[LogLevel]string{
-		CriticalLevel: colorString(Magenta),
-		ErrorLevel:    colorString(Red),
-		WarningLevel:  colorString(Yellow),
-		NoticeLevel:   colorString(Green),
-		DebugLevel:    colorString(Cyan),
-		InfoLevel:     colorString(White),
-	}
+func initColors(userColor *map[LogLevel]string) {
+	colors = *userColor
 }
 
 // Initializes the map of placeholders
@@ -184,25 +192,29 @@ func New(args ...interface{}) (*Logger, error) {
 	//initColors()
 
 	var module string = "DEFAULT"
-	var color int = 1
+	var isColor int = 1
 	var out io.Writer = os.Stderr
 	var level LogLevel = InfoLevel
+	var color map[LogLevel]string = defaultColors
 
 	for _, arg := range args {
 		switch t := arg.(type) {
 		case string:
 			module = t
 		case int:
-			color = t
+			isColor = t
 		case io.Writer:
 			out = t
 		case LogLevel:
 			level = t
+		case map[LogLevel]string:
+			color = t
 		default:
 			panic("logger: Unknown argument")
 		}
 	}
-	newWorker := NewWorker("", 0, color, out)
+	initColors(&color)
+	newWorker := NewWorker("", 0, isColor, out)
 	newWorker.SetLogLevel(level)
 	return &Logger{Module: module, worker: newWorker}, nil
 }

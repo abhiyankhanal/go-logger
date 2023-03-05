@@ -41,3 +41,7 @@ type Logger struct {
 	Module string
 	worker *Worker
 }
+
+type Colors struct {
+	ColorMap map[LogLevel]string
+}
