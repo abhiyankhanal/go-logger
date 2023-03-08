@@ -12,6 +12,9 @@ Some of the features are
     - Message
 - 6 level of logs
 
+[![goreport](https://goreportcard.com/badge/github.com/abhiyankhanal/go-logger)](https://goreportcard.com/report/github.com/abhiyankhanal/go-logger)
+
+
 # Installation
 ```
 go get github.com/abhiyankhanal/go-logger
