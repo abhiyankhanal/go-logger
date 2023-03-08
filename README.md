@@ -3,14 +3,23 @@ The go-logger package aims to build informative logs for your go project.
 Some of the features are
 - Customizable colorful/non colored logs on the basis of different levels.
 - Set formats to include the following:
-    - Module
-    - Time
-    - FileName
-    - File
-    - Line
-    - Level
-    - Message
+  - Module
+  - Time
+  - FileName
+  - File
+  - Line
+  - Level
+  - Message
 - 6 level of logs
+
+[![goreport](https://goreportcard.com/badge/github.com/abhiyankhanal/go-logger)](https://goreportcard.com/report/github.com/abhiyankhanal/go-logger)
+[![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=abhiyankhanal_go-logger&metric=duplicated_lines_density)](https://sonarcloud.io/summary/new_code?id=abhiyankhanal_go-logger)
+[![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=abhiyankhanal_go-logger&metric=vulnerabilities)](https://sonarcloud.io/summary/new_code?id=abhiyankhanal_go-logger)
+[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=abhiyankhanal_go-logger&metric=bugs)](https://sonarcloud.io/summary/new_code?id=abhiyankhanal_go-logger)
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=abhiyankhanal_go-logger&metric=coverage)](https://sonarcloud.io/summary/new_code?id=abhiyankhanal_go-logger)
+
+[![SonarCloud](https://sonarcloud.io/images/project_badges/sonarcloud-white.svg)](https://sonarcloud.io/summary/new_code?id=abhiyankhanal_go-logger)
+
 
 # Installation
 ```
@@ -24,7 +33,7 @@ go1.18+
 
 # Formatting
 
-By default, the format of all log messages is as seen above (on pic).
+By default, the format of all log messages.
 But, you can change the default format to one of your choosing.
 
 After generating a logger, you can do it for the instance of the logger.
@@ -42,14 +51,14 @@ Available colors:
 `Red, Yellow, Blue, Magenta, Green, White, Black`
 ```go
 var (
-	myColors = map[logger.LogLevel]string{
-		logger.CriticalLevel: logger.ColorString(logger.Red),
-		logger.ErrorLevel:    logger.ColorString(logger.Red),
-		logger.WarningLevel:  logger.ColorString(logger.Yellow),
-		logger.NoticeLevel:   logger.ColorString(logger.Blue),
-		logger.DebugLevel:    logger.ColorString(logger.Magenta),
-		logger.InfoLevel:     logger.ColorString(logger.Green),
-	}
+myColors = map[logger.LogLevel]string{
+logger.CriticalLevel: logger.ColorString(logger.Red),
+logger.ErrorLevel:    logger.ColorString(logger.Red),
+logger.WarningLevel:  logger.ColorString(logger.Yellow),
+logger.NoticeLevel:   logger.ColorString(logger.Blue),
+logger.DebugLevel:    logger.ColorString(logger.Magenta),
+logger.InfoLevel:     logger.ColorString(logger.Green),
+}
 )
 //first_option:package_name
 //second_option: 0 for no color, 1 for colorful logs
