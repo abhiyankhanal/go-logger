@@ -24,7 +24,7 @@ go1.18+
 
 # Formatting
 
-By default, the format of all log messages is as seen above (on pic).
+By default, the format of all log messages.
 But, you can change the default format to one of your choosing.
 
 After generating a logger, you can do it for the instance of the logger.
