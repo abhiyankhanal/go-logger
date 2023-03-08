@@ -12,6 +12,9 @@ Some of the features are
     - Message
 - 6 level of logs
 
+[![goreport](https://goreportcard.com/badge/github.com/abhiyankhanal/go-logger)](https://goreportcard.com/report/github.com/abhiyankhanal/go-logger)
+
+
 # Installation
 ```
 go get github.com/abhiyankhanal/go-logger
@@ -24,7 +27,7 @@ go1.18+
 
 # Formatting
 
-By default, the format of all log messages is as seen above (on pic).
+By default, the format of all log messages.
 But, you can change the default format to one of your choosing.
 
 After generating a logger, you can do it for the instance of the logger.
