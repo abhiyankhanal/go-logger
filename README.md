@@ -17,7 +17,6 @@ Some of the features are
 [![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=abhiyankhanal_go-logger&metric=vulnerabilities)](https://sonarcloud.io/summary/new_code?id=abhiyankhanal_go-logger)
 [![Bugs](https://sonarcloud.io/api/project_badges/measure?project=abhiyankhanal_go-logger&metric=bugs)](https://sonarcloud.io/summary/new_code?id=abhiyankhanal_go-logger)
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=abhiyankhanal_go-logger&metric=coverage)](https://sonarcloud.io/summary/new_code?id=abhiyankhanal_go-logger)
-
 [![SonarCloud](https://sonarcloud.io/images/project_badges/sonarcloud-white.svg)](https://sonarcloud.io/summary/new_code?id=abhiyankhanal_go-logger)
 
 
