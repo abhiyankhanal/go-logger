@@ -1,3 +1,10 @@
+[![goreport](https://goreportcard.com/badge/github.com/abhiyankhanal/go-logger)](https://goreportcard.com/report/github.com/abhiyankhanal/go-logger)
+[![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=abhiyankhanal_go-logger&metric=duplicated_lines_density)](https://sonarcloud.io/summary/new_code?id=abhiyankhanal_go-logger)
+[![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=abhiyankhanal_go-logger&metric=vulnerabilities)](https://sonarcloud.io/summary/new_code?id=abhiyankhanal_go-logger)
+[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=abhiyankhanal_go-logger&metric=bugs)](https://sonarcloud.io/summary/new_code?id=abhiyankhanal_go-logger)
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=abhiyankhanal_go-logger&metric=coverage)](https://sonarcloud.io/summary/new_code?id=abhiyankhanal_go-logger)
+[![SonarCloud](https://sonarcloud.io/images/project_badges/sonarcloud-white.svg)](https://sonarcloud.io/summary/new_code?id=abhiyankhanal_go-logger)
+
 # go-logger
 The go-logger package aims to build informative logs for your go project.
 Some of the features are
@@ -11,14 +18,12 @@ Some of the features are
   - Level
   - Message
 - 6 level of logs
-
-[![goreport](https://goreportcard.com/badge/github.com/abhiyankhanal/go-logger)](https://goreportcard.com/report/github.com/abhiyankhanal/go-logger)
-[![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=abhiyankhanal_go-logger&metric=duplicated_lines_density)](https://sonarcloud.io/summary/new_code?id=abhiyankhanal_go-logger)
-[![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=abhiyankhanal_go-logger&metric=vulnerabilities)](https://sonarcloud.io/summary/new_code?id=abhiyankhanal_go-logger)
-[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=abhiyankhanal_go-logger&metric=bugs)](https://sonarcloud.io/summary/new_code?id=abhiyankhanal_go-logger)
-[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=abhiyankhanal_go-logger&metric=coverage)](https://sonarcloud.io/summary/new_code?id=abhiyankhanal_go-logger)
-[![SonarCloud](https://sonarcloud.io/images/project_badges/sonarcloud-white.svg)](https://sonarcloud.io/summary/new_code?id=abhiyankhanal_go-logger)
-
+	- Critical
+	- Error
+	- Warning
+	- Notice
+	- Debug
+	- Info
 
 # Installation
 ```
@@ -88,5 +93,15 @@ log.SetFormat("[%{level}-%{id}] %{module} %{filename} %{file}:%{line} %{message}
 <img width="634" alt="image" src="https://user-images.githubusercontent.com/51784021/222954019-9e74261d-25c2-413c-b526-c66524b9db27.png">
 
 
-# Contributor
-- Abhiyan Khanal
+# Contributors
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+<table>
+  <tbody>
+    <tr>
+    	<td align="center"><a href="https://github.com/abhiyankhanal"><img src="https://avatars.githubusercontent.com/u/51784021" width="70px;" alt="Abhiyan Khanal"/><br /><sub><b>Abhiyan Khanal</b></sub></a><br /></td>
+		<td align="center"><a href="https://github.com/shankar524"><img src="https://avatars.githubusercontent.com/u/22054064" width="70px;" alt="Shankar Acharya"/><br /><sub><b>Shankar Acharya</b></sub></a><br /></td>
+    </tr>
+  </tbody>
+</table>
