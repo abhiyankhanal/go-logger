@@ -220,8 +220,8 @@ func New(args ...interface{}) (*Logger, error) {
 	return &Logger{Module: module, worker: newWorker}, nil
 }
 
-// The log commnand is the function available to user to log message, lvl specifies
-// the degree of the messagethe user wants to log, message is the info user wants to log
+// The log command is the function available to user to log message, lvl specifies
+// the degree of the message the user wants to log, message is the info user wants to log
 func (l *Logger) Log(lvl LogLevel, message string) {
 	l.log_internal(lvl, message, 2)
 }
